@@ -1,0 +1,106 @@
+.thank{
+    background: url(/assets/zz.jpg);
+    align-items: center;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.thank p {
+    color: white;
+    font-size: 30px;
+    padding: 50px;
+    text-align: center;
+    width: 1400px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+.ftco-section {
+
+
+    padding: 50px 0;
+}
+
+/* Style for the form container */
+.contact-wrap {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for form labels */
+.label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for form inputs and textareas */
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 20px;
+}
+
+.form-control:focus {
+    border-color: #000080;
+    box-shadow: 0 0 10px #000080;
+    outline: none;
+}
+
+/* Style for submit button */
+.btn-primary {
+    background-color: #000080;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: black;
+}
+
+/* Style for contact information on the right */
+/* Style for contact information on the right */
+.info-wrap {
+    background: rgba(255, 255, 255, 0.8); /* Adjust the opacity value (0.6) as needed */
+    background-image: url("/assets/ctc.jpg");
+    background-position: 30%;
+    color: white;
+    font-weight: 700;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-size: 19px;
+}
+
+a{
+    color: white;
+}
+
+/* Style for contact information icons */
+.fa {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .contact-wrap,
+    .info-wrap {
+        padding: 20px;
+        
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}

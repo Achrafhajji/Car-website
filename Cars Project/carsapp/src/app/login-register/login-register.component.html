@@ -1,0 +1,103 @@
+<app-header></app-header>
+
+<!-- auth.component.html -->
+<div class="login-wrap">
+
+    <div class="login-html">
+          
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+         <form (ngSubmit)="login()">
+            <div *ngIf="errorMessagelogin" class="alert alert-warning alert-dismissible fade show" role="alert">
+
+    <strong> {{ errorMessagelogin }}</strong> 
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+  </div> 
+            <div class="group">
+            <label for="userSignIn" class="label">Email</label>
+            <input  [(ngModel)]=" user_login.Email_user" name="Email_user"  type="email" class="input">
+          </div>
+          <div class="group">
+            <label for="passSignIn" class="label">Password</label>
+            <input  [(ngModel)]=" user_login.Password_user" name="Password_user"  type="password" class="input" data-type="password">
+          </div>
+          <div class="group">
+            <input id="checkSignIn" type="checkbox" class="check" checked>
+            <label for="checkSignIn"><span class="icon"></span> Keep me Signed in</label>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign In">
+          </div>
+         </form>
+            
+        
+        </div>
+       
+        <div class="sign-up-htm" >
+            <form (ngSubmit)="register()">
+                <div *ngIf="errorMessageregister" class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                    <strong> {{ errorMessageregister}}</strong> 
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                
+                  </div> 
+                         
+ <div class="group">
+                <label for="userSignUp" class="label">Name</label>
+                <input [(ngModel)]="user.Name_user" name="Name_user"  id="userSignUp" type="text" class="input">
+              </div>
+              <div class="group">
+                <label for="userSignUp" class="label">Surname</label>
+                <input id="userSignUp" [(ngModel)]="user.Surname_user"  name="Surname_user" type="text" class="input">
+              </div>
+              <div class="group">
+                <label for="userSignUp" class="label">Phone number</label>
+                <input  [(ngModel)]="user.Phonenumber_user" name="Phonenumber_user" type="text" class="input">
+              </div>
+              <div class="group">
+                <label for="userSignUp" class="label">City</label>
+                <select [(ngModel)]="user.City_user" name="City_user"   class="select">
+                  <option value=""></option>
+                  <option value="Rabat">Rabat</option>
+                  <option value="Salé">Salé</option>
+                  <option value="Casablanca">Casablanca</option>
+                  <option value="Tanger">Tanger</option>
+                  <option value="Marrakech">Marrakech</option>
+                  <option value="Tetouan">Tetouan</option>
+                  <option value="Oujda">Oujda</option>
+                  <option value="Fes">Fes</option>
+                  <option value="Meknes">Meknes</option>
+                  <option value="Kenitra">Kenitra</option>
+                  <option value="Mohammadia">Mohammadia</option>
+                </select>
+                <label for="userSignUp" class="label">Adresse</label>
+                <input  [(ngModel)]="user.Adresse_user" name="Adresse_user" type="text" class="input">
+              </div>
+          <div class="group">
+            <label for="userSignUp" class="label">Email</label>
+            <input  [(ngModel)]="user.Email_user" name="Email_user" type="email" class="input">
+          </div>
+          <div class="group">
+            <label for="passSignUp" class="label">Password</label>
+            <input  [(ngModel)]="user.Password_user" name="Password_user" type="password" class="input" data-type="password">
+          </div>
+           <div class="group">
+            <input id="checkSignUp" type="checkbox" class="check" checked>
+            <label for="checkSignUp"><span class="icon"></span> Keep me Signed up</label>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign Up">
+          </div>
+            </form>
+           
+         
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>

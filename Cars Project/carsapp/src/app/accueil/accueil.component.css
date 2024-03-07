@@ -1,0 +1,43 @@
+
+.Accueil{
+  margin-top: 150px;
+
+}
+
+.navbar-dark {
+    display: flex;
+    align-items: center; /* Centrage vertical */
+    height: 70px; /* Ajustez la hauteur selon vos besoins */
+    width: 80%;
+    margin: 0 auto;
+    
+  }
+  .navbarreviews{
+    margin-top: 15px;
+  }
+  .titles {
+    color: white;
+    margin: auto; /* Centrage horizontal */
+    margin-top: 5px; /* Ajustez la marge supérieure pour déplacer le texte verticalement */
+  }
+  .titles::first-letter {
+    color: red;
+  }
+.nav-item{
+    font-weight: 800;
+    padding-right: 30px;
+    font-size: large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

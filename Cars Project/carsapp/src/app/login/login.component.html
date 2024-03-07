@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <div class="container" *ngIf="errorMessagelogin">
+                <div class="wrapper-warning" #warningWrapper [ngClass]="{'active': isWarningVisible, 'hidden': !isWarningVisible}">
+                    <div class="card">
+                    <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="subject">
+                      <h3>Warning</h3>
+                      <p>{{ errorMessagelogin }}</p>
+                    </div>
+                    <div class="icon-times" (click)="hideWarning()"><i class="fas fa-times"></i></div>
+                  </div>
+                </div>
+              </div>
+              
+              
+        </div>
+
+
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Welcome Back !</h3>
+                            <form (ngSubmit)="login()">
+                               
+                                <div class="form-group mb-3">
+                                 <Label class="lbl" for="">Email</Label>
+                                    <input [(ngModel)]=" user_login.Email_user" name="Email_user" id="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3 position-relative">
+                                    <label class="lbl" for="inputPassword">Password</label>
+                                    <input [(ngModel)]=" user_login.Password_user" name="Password_user" id="inputPassword" type="password" placeholder="Password" [type]="isPasswordVisible ? 'text' : 'password'" [(ngModel)]="password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <button (click)="togglePasswordVisibility()" type="button" class="btn btn-primary toggle-password-btn"><i class="bi bi-eye-fill"></i></button>
+                                </div>
+                                
+                                
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                </div>
+<!-- HTML !-->
+<button type="submit" class="button-18" role="button">Login</button>
+
+                </form>
+                <p class="acc">Doesn't have an account? <a href="" routerLink="/signup">Sign up</a> here</p>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>
+
+  
+    
+<app-footer></app-footer>

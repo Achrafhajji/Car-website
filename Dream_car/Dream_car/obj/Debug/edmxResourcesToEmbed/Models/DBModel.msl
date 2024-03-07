@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Dream_carModelStoreContainer" CdmEntityContainer="Dream_carEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="Dream_carModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Name_admin" ColumnName="Name_admin" />
+          <ScalarProperty Name="Surname_admin" ColumnName="Surname_admin" />
+          <ScalarProperty Name="Adresse_admin" ColumnName="Adresse_admin" />
+          <ScalarProperty Name="Email_admin" ColumnName="Email_admin" />
+          <ScalarProperty Name="Password_admin" ColumnName="Password_admin" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_advice">
+      <EntityTypeMapping TypeName="Dream_carModel.Car_advice">
+        <MappingFragment StoreEntitySet="Car_advice">
+          <ScalarProperty Name="Resume_advice" ColumnName="Resume_advice" />
+          <ScalarProperty Name="Id_advice" ColumnName="Id_advice" />
+          <ScalarProperty Name="Title_advice" ColumnName="Title_advice" />
+          <ScalarProperty Name="Description_advice" ColumnName="Description_advice" />
+          <ScalarProperty Name="Picture_advice" ColumnName="Picture_advice" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars_Reviews">
+      <EntityTypeMapping TypeName="Dream_carModel.Cars_Reviews">
+        <MappingFragment StoreEntitySet="Cars_Reviews">
+          <ScalarProperty Name="Id_review" ColumnName="Id_review" />
+          <ScalarProperty Name="Title_review" ColumnName="Title_review" />
+          <ScalarProperty Name="Description_review" ColumnName="Description_review" />
+          <ScalarProperty Name="Picture_review" ColumnName="Picture_review" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="Dream_carModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="typenews_news" ColumnName="typenews_news" />
+          <ScalarProperty Name="Subtitle_news" ColumnName="Subtitle_news" />
+          <ScalarProperty Name="Id_news" ColumnName="Id_news" />
+          <ScalarProperty Name="Title_news" ColumnName="Title_news" />
+          <ScalarProperty Name="Description_news" ColumnName="Description_news" />
+          <ScalarProperty Name="Pic_news" ColumnName="Pic_news" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consulters">
+      <EntityTypeMapping TypeName="Dream_carModel.Consulters">
+        <MappingFragment StoreEntitySet="Consulters">
+          <ScalarProperty Name="Id_consulter" ColumnName="Id_consulter" />
+          <ScalarProperty Name="Name_consulter" ColumnName="Name_consulter" />
+          <ScalarProperty Name="Surname_consulter" ColumnName="Surname_consulter" />
+          <ScalarProperty Name="Fonction_consulter" ColumnName="Fonction_consulter" />
+          <ScalarProperty Name="Email_consulter" ColumnName="Email_consulter" />
+          <ScalarProperty Name="Password_consulter" ColumnName="Password_consulter" />
+          <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+          <ScalarProperty Name="Picture_consulter" ColumnName="Picture_consulter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_make">
+      <EntityTypeMapping TypeName="Dream_carModel.Car_make">
+        <MappingFragment StoreEntitySet="Car_make">
+          <ScalarProperty Name="Name_makecar" ColumnName="Name_makecar" />
+          <ScalarProperty Name="Id_makecar" ColumnName="Id_makecar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_type">
+      <EntityTypeMapping TypeName="Dream_carModel.Car_type">
+        <MappingFragment StoreEntitySet="Car_type">
+          <ScalarProperty Name="Name_typecar" ColumnName="Name_typecar" />
+          <ScalarProperty Name="Id_typecar" ColumnName="Id_typecar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News_type">
+      <EntityTypeMapping TypeName="Dream_carModel.News_type">
+        <MappingFragment StoreEntitySet="News_type">
+          <ScalarProperty Name="Name_newstype" ColumnName="Name_newstype" />
+          <ScalarProperty Name="Id_newstype" ColumnName="Id_newstype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Dream_carModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password_user" ColumnName="Password_user" />
+          <ScalarProperty Name="Email_user" ColumnName="Email_user" />
+          <ScalarProperty Name="Adresse_user" ColumnName="Adresse_user" />
+          <ScalarProperty Name="City_user" ColumnName="City_user" />
+          <ScalarProperty Name="Phonenumber_user" ColumnName="Phonenumber_user" />
+          <ScalarProperty Name="Surname_user" ColumnName="Surname_user" />
+          <ScalarProperty Name="Name_user" ColumnName="Name_user" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicule">
+      <EntityTypeMapping TypeName="Dream_carModel.Vehicule">
+        <MappingFragment StoreEntitySet="Vehicule">
+          <ScalarProperty Name="PostingTime" ColumnName="PostingTime" />
+          <ScalarProperty Name="Vehicule_Description" ColumnName="Vehicule_Description" />
+          <ScalarProperty Name="Vehicule_Pictures" ColumnName="Vehicule_Pictures" />
+          <ScalarProperty Name="Vehicule_SellPrice" ColumnName="Vehicule_SellPrice" />
+          <ScalarProperty Name="Vehicule_Transmission" ColumnName="Vehicule_Transmission" />
+          <ScalarProperty Name="Vehicule_Fuel" ColumnName="Vehicule_Fuel" />
+          <ScalarProperty Name="Vehicule_DoorsNumber" ColumnName="Vehicule_DoorsNumber" />
+          <ScalarProperty Name="Vehicule_FirstHand" ColumnName="Vehicule_FirstHand" />
+          <ScalarProperty Name="Vehicule_Kilometrage" ColumnName="Vehicule_Kilometrage" />
+          <ScalarProperty Name="Vehicule_Horsepower" ColumnName="Vehicule_Horsepower" />
+          <ScalarProperty Name="Vehicule_Year" ColumnName="Vehicule_Year" />
+          <ScalarProperty Name="Vehicule_Model" ColumnName="Vehicule_Model" />
+          <ScalarProperty Name="Vehicule_Make" ColumnName="Vehicule_Make" />
+          <ScalarProperty Name="Vehicule_ID" ColumnName="Vehicule_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Car_Model1Set">
+      <EntityTypeMapping TypeName="Dream_carModel.Car_Model1">
+        <MappingFragment StoreEntitySet="Car_Model">
+          <ScalarProperty Name="Name_makecar" ColumnName="Name_makecar" />
+          <ScalarProperty Name="Name_modelcar" ColumnName="Name_modelcar" />
+          <ScalarProperty Name="Id_ModelCar" ColumnName="Id_ModelCar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

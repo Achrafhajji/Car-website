@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+      <div *ngFor="let consulter of consulters"  class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="our-team">
+          <div class="picture">
+            <img class="img-fluid"[src]="'data:image/jpeg;base64,' + consulter.Picture_consulter">
+
+          </div>
+          <div class="team-content">
+            <h3 class="name">{{ consulter.Name_consulter }} {{ consulter.Surname_consulter }}</h3>
+            <h4 class="title">{{ consulter.Fonction_consulter }}</h4>
+          </div>
+          <ul class="social">
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-twitter-x"></i></li>
+            <li><i class="bi bi-linkedin"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+          </ul>
+        </div>
+      </div>
+       
+       
+        
+    </div>
+  </div>

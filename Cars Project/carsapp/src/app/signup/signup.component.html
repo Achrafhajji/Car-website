@@ -1,0 +1,96 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+            <div class="container" *ngIf="errorMessageregister">
+                <div class="wrapper-warning" #warningWrapper [ngClass]="{'active': isWarningVisible, 'hidden': !isWarningVisible}">
+                    <div class="card">
+                    <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="subject">
+                      <h3>Warning</h3>
+                      <p>{{ errorMessageregister }}</p>
+                    </div>
+                    <div class="icon-times" (click)="hideWarning()"><i class="fas fa-times"></i></div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Welcome !</h3>
+
+                            <form (ngSubmit)="register()">
+                               <div class="form-group mb-3">
+    <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+            <label class="lbl" for="">Name</label>
+            <input type="text" placeholder="Name" [(ngModel)]="user.Name_user" name="Name_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+        </div>
+        <div class="mx-3"></div> <!-- Add space between Name and Surname -->
+        <div class="flex-grow-1">
+            <label class="lbl" for="">Surname</label>
+            <input type="text" placeholder="Surname"  [(ngModel)]="user.Surname_user"  name="Surname_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+        </div>
+    </div>
+</div>
+
+<div class="form-group mb-3">
+    <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+            <label class="lbl" for="">City</label>
+            <select name="" id="inputEmail"  [(ngModel)]="user.City_user" name="City_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4 mr-3">
+                <option value="">choose a city</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Tanger">Tanger</option>
+                <option value="Casablanca">Casablanca</option>
+            </select>        </div>
+        <div class="mx-3"></div> <!-- Add space between Name and Surname -->
+        <div class="flex-grow-1">
+            <label class="lbl" for="">Adresse</label>
+            <input id="inputEmail" type="text" placeholder="Address" [(ngModel)]="user.Adresse_user" name="Adresse_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4 custom-width">
+        </div>
+    </div>
+</div>
+
+                                   <div class="form-group mb-3">
+                                    <Label class="lbl" for="">Phone number</Label>
+                                       <input id="inputEmail" type="text" placeholder="Phone number"  [(ngModel)]="user.Phonenumber_user" name="Phonenumber_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                   </div>
+                                <div class="form-group mb-3">
+                                 <Label class="lbl" for="">Email</Label>
+                                    <input id="inputEmail" type="email" placeholder="Email address" [(ngModel)]="user.Email_user" name="Email_user" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <Label class="lbl" for="">Password</Label>
+
+                                    <input [(ngModel)]="user.Password_user" name="Password_user" id="inputPassword" type="password" placeholder="Password" [type]="isPasswordVisible ? 'text' : 'password'" [(ngModel)]="password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <button (click)="togglePasswordVisibility()" type="button" class="btn btn-primary toggle-password-btn"><i class="bi bi-eye-fill"></i></button>                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                </div>
+<!-- HTML !-->
+<button class="button-18" role="button" type="submit">Sign up</button>
+
+                </form>
+                <p class="acc">Already have an account? <a href="" routerLink="/login">Login</a> here</p>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>
+<app-footer></app-footer>

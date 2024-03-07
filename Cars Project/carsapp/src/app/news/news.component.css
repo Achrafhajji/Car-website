@@ -1,0 +1,475 @@
+.carousel {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 20px;
+}
+
+.slides {
+    display: block;
+    position: relative;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input {
+    display: none; 
+
+}
+
+.slide-container { 
+
+    display: block;
+}
+
+.slide-content {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    padding: 20px; /* Add padding to space the content from the edges */
+
+}
+.slide-content .newstype{
+  margin-top: 30px;
+}
+
+
+.slide-content .carouseldate{
+  font-size: 14px;
+}
+
+
+figcaption {
+    margin-left: 20px;
+    color: white;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.slide-content h2,
+.slide-content p {
+    color: white;
+    margin-left: 20px;
+}
+
+.slide-content p {
+    margin-top: 10px;
+    font-size: medium;
+    font-weight: 700;
+    max-width: 600px;
+}
+
+.slide-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+}
+
+.slide-image img {
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+    filter: brightness(0.9); /* Add this line to decrease color intensity */
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  font-size: 100px;
+  line-height: 600px;
+  color: #fff;
+  margin-top: 150px; /* Adjusted value */
+}
+
+.carousel-controls label {
+    display: none;
+    position: absolute;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity .2s;
+    cursor: pointer;
+    top: 50%; /* Adjusted value */
+    transform: translateY(-50%); /* Adjusted value */
+}
+
+.slide-image:hover + .carousel-controls label {
+    opacity: 0.5;
+}
+
+.carousel-controls label:hover {
+    opacity: 1;
+}
+
+.carousel-controls .prev-slide {
+    width: 49%;
+    text-align: left;
+    left: 0;
+}
+
+.carousel-controls .next-slide {
+    width: 49%;
+    text-align: right;
+    right: 0;
+}
+
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 999;
+  text-align: center;
+  margin-bottom: 20px; /* Adjusted value */
+}
+
+.carousel-dots .carousel-dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 10px;
+}
+
+input:checked + .slide-container .slide-image {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+   
+    
+}
+
+input:checked + .slide-container .carousel-controls label {
+    display: block; 
+
+}
+
+
+
+
+
+
+.half-black-half-red {
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 20px;
+  background: linear-gradient(to right, black 50%, red 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  font-weight: bolder;
+}
+.form-group {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group h1{
+font-weight: 600;
+  margin-left: 350px;
+}
+
+.label {
+  font-weight: 800;
+  font-size: large;
+  margin-left: 50px; /* Adjust the margin as needed */
+}
+
+select {
+  width: 250px; /* Adjust the width as needed */
+  margin-left: 40px;
+  height: 40px; /* Adjust the margin as needed */
+  
+}
+select:focus {
+  border-color: red;
+}
+.button-33 {
+  background-color: red;
+  border-radius: 100px;
+  box-shadow: rgba(187, 56, 44, 0.2) 0 -25px 18px -14px inset,rgba(187, 61, 44, 0.15) 0 1px 2px,rgba(187, 56, 44, 0.15) 0 2px 4px,rgba(187, 44, 44, 0.15) 0 4px 8px,rgba(187, 46, 44, 0.15) 0 8px 16px,rgba(187, 46, 44, 0.15) 0 16px 32px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 15px 27px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 19px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 30px;
+}
+
+.button-33:hover {
+  box-shadow: rgba(187, 63, 44, 0.35) 0 -25px 18px -14px inset,rgba(187, 49, 44, 0.263) 0 1px 2px,rgba(187, 58, 44, 0.25) 0 2px 4px,rgba(187, 44, 44, 0.25) 0 4px 8px,rgba(187, 58, 44, 0.25) 0 8px 16px,rgba(187, 44, 44, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+
+
+  
+.center{
+
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.article-cards-container {
+  display: flex;
+  
+  flex-wrap: wrap; /* Allow cards to wrap to the next line if there's not enough space */
+}
+
+  
+  .article-card {
+    width: 550px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 300ms;
+    cursor: pointer;
+    height: 300px;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .article-card img {
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+  }
+  
+  .article-card .content {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    padding: 30px 20px 20px 20px;
+    height: auto;
+    bottom: 0;
+    
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); 
+  }
+  
+  .souscontent {
+   
+    display: flex;
+    justify-content: space-between; /* Alignement des éléments sur la même ligne */
+    margin-bottom: 160px; /* Ajustement de la marge entre typenews et date */
+  }
+  .souscontent .date {
+    font-size: 18px;
+    color: white;
+   
+  }
+  .souscontent .typenews{
+    font-size: 18px;
+   
+text-align: center;
+    color: white;
+
+  }
+  .divtype{
+    background-color: red;
+    height: 25px;
+     border-radius: 22px;
+     width: 120px;
+  }
+.autor {
+    background-color: red;
+    border-radius: 22px;
+    width: 225px;
+
+}
+.caption {
+    
+    color: white;
+    font-size: 16px;
+}
+  .article-card .title {
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .article-card:hover .title {
+    transform: translateY(-190%);
+}
+  
+  .article-card .title::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 5px;
+    background-color: red;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .article-card:hover .title::after {
+    transform: scaleX(1);
+  }
+  
+  .article-card .subtitle {
+    color: #fff;
+    font-size: 17px;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .article-card:hover .subtitle {
+    opacity: 1; /* Display the subtitle on hover */
+  }
+
+
+
+  .body{
+    margin-top: 3%;
+}
+
+
+* {
+	
+	font-family: Raleway, sans-serif;
+}
+
+.btn-close {
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Optional: Add hover effect */
+  .btn-close:hover {
+    opacity: 0.8;
+  }
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: calc(100% - 1rem); /* Adjust as needed to center vertically */
+    
+  }
+  
+  .modal-content-small {
+    width: 1000px; /* Adjust the width as needed */
+
+  }
+
+
+
+
+.screen {		
+		
+		
+	height: 600px;
+	width: 1200px;	
+
+}
+
+
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  width: 81%;
+  overflow-y: auto; /* Add vertical scroll bar if content is too long */
+}
+
+
+
+.text{
+
+    margin-top: 20px;
+    line-height: 26px;
+    color: black;
+}
+
+h2{
+    margin-top: 20px;
+}
+
+
+
+
+.img-fluid {
+ 
+  width: 80%;
+  max-height: 50vh; /* Set a maximum height for the image */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  border-radius: 8px; /* Optional: add rounded corners */
+  
+}
+
+.modal-title {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.modal-subtitle {
+  font-size: 18px;
+  color: black;
+}
+
+.modal-description {
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+  max-width: 900px; /* Set a maximum height for the description */
+}
+.divcaption{
+  background-color: red;
+  width: 50%;
+}
+.modal-caption{
+  color: white;
+
+}
+.bi-chat-left-fill{
+font-size: 15px;
+margin-right: 20px;
+}

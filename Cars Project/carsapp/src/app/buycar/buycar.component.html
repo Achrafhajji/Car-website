@@ -1,0 +1,414 @@
+<app-header></app-header>
+<div class="buycars">
+
+
+<div class="body">
+    
+    <div class="containers">
+      <div class="dscvr">
+            <h2>Discover our cars to buy !</h2>
+            <div class="search-box">
+              <input type="text" placeholder="Search a vehicule">
+              <button>Search</button>
+          </div>
+      </div>
+   
+
+
+    <form method="POST" action="#" class="register-form" id="register-form">
+      <div class="form-group">
+        <label for="make">Make</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="make" name="make" [(ngModel)]="selectedMake" (change)="onMakeChange()">
+            <option value="">Choose a make</option>
+            <option *ngFor="let make of makes" [value]="make.Name_makecar">{{ make.Name_makecar }}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" name="model" id="model" [disabled]="!selectedMake" [(ngModel)]="selectedModel" [ngClass]="{'disabled-cursor': !selectedMake}">
+            <option value="">Choose a model</option>
+            <option *ngFor="let model of models" [value]="model.Name_modelcar">{{ model.Name_modelcar }}</option>
+          </select>
+        </div>
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="min-price">Min Price</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="min-price">
+            <option value="">Pick a min price</option>
+            <option *ngFor="let price of minPriceOptions" [value]="price">{{ price | number  }} $</option>
+          </select>
+        </div>
+      </div>
+      
+      
+
+      <div class="form-group">
+        <label for="max-price">Max Price</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="max-price">
+            <option value="">Pick a max price</option>
+            <option *ngFor="let price of maxPriceOptions" [value]="price">{{ price | number  }} $</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="max-price">Year</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="max-price" >
+            <option value="">Choose a year</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="max-price">Kilometrage</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="max-price">
+            <option value="">Enter the kilometrage</option>
+            <option value="30000">$30,000</option>
+            <option value="40000">$40,000</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="max-price">Transmission</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="max-price">
+            <option value="">Pick a transmission</option>
+            <option value="30000">Automatic</option>
+            <option value="40000">Manual</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="max-price">Fuel</label>
+        <div class="custom-select-wrapper">
+          <select class="custom-select" id="max-price">
+            <option value="">Pich the fuel type</option>
+            <option value="30000">Gas</option>
+            <option value="40000">Petrol</option>
+            <option value="40000">Electric</option>
+            <option value="40000">Hybrid</option>
+
+          </select>
+        </div>
+      </div>
+      <button class="button-18" role="button">Search</button>
+
+    </form>
+    
+    </div>
+
+    
+<div class="containerss">
+     <div class="available-cars">
+
+        <div *ngFor="let car of cars"  class="zzz" style="width: 21rem;" >
+            <div (click)="redirectToCarDetails(car.Vehicule_ID)">
+             
+
+              <p class="timepost"><i class="bi bi-clock"></i> {{ car.TimeDifference }}</p>
+              <ul class="slides">
+                   
+                    <li class="slide-container">
+                      <div class="slide-image">
+                        <img [src]="getImageSource(car.firstImage)">
+
+                      </div>
+                     
+                    </li>
+                    
+                  </ul>
+                
+              </div>
+            <div class="card-body">
+              <h5 class="card-titles">{{ car.Vehicule_Make }} {{ car.Vehicule_Model }} {{ car.Vehicule_Year }}</h5>
+              
+
+            </div>
+            <ul class="list-group list-group-flush">
+              
+              <li class="list-group">
+                <div class="d-flex justify-content-between">
+                 <div class="mr-2"><span class="cc"><i class="fa-solid fa-gas-pump"></i></span> <span class="dd">{{ car.Vehicule_Fuel }}</span></div> 
+                 <div class="mr-2"><span class="cc"><i class="fa-solid fa-road"></i></span> <span class="dd">{{ car.FormattedVehicule_Kilometrage }} KM</span></div> 
+                  <div class="mr-2"><span class="cc"><span class="mdi mdi-car-shift-pattern"></span>
+                  </span> <span class="dd">{{ car.Vehicule_Transmission }} </span></div>
+              </div>
+            </li>
+            <li class="list-group">
+              <div class="price-container">
+                <p class="cp">{{ car.FormattedVehicule_SellPrice }} $</p> 
+                
+              </div>
+            </li>
+            
+            <li class="list-group-item">
+           <div class="heart-container">
+                  <button class="button button-like" (click)="toggleLike()" [ngClass]="{'liked': isLiked}">
+                    <i class="fa fa-heart" [ngClass]="{'liked': isLiked}" ></i>
+                    <span [ngClass]="{'liked': isLiked}">Add to my favorites</span>
+                  </button>
+                                  </div>
+             
+                                </li>
+            </ul>
+           
+          </div>
+
+       </div>
+  
+</div>
+      
+
+<div class="txt"> 
+<p>
+ DreamCar offers a selection of used cars for sale throughout Morocco, as well as a range of premium automotive services 
+  (trade-in, financing, warranties, etc.). Our platform is designed to help you easily and quickly find the perfect car!
+To select the model that best suits your needs, use our search filters: they will help you specify your requirements (brand, model,
+ price range, kilometrage, age, etc.). 
+You can also sort the results by posting date, brand, year, or mileage. Happy searching with DreamCar!
+</p>
+</div>
+   
+<div class="acht">
+<h2>Your purchase of a used vehicle in Morocco</h2>
+<h2 class="divider donotcross"></h2>
+<div class="dvd">
+  <p>Buying a used vehicle from a private seller in Morocco is not something to be taken lightly! 
+  Not only do you need to have a good understanding of the market, but you also need to be familiar with all the procedures 
+  that ensure a smooth transaction while being financially protected
+</p>
+<p>
+  With DreamCar, it's essentially a private sale. The only difference is that you benefit from the assistance of industry
+   professionals! They handle the mediation of used vehicle sales between private individuals and ensure that 
+   the cars featured on the platform are being sold at a fair price. They guide you through all the necessary steps: 
+   connecting with the seller, test-driving the vehicle, secure payment, changing the registration, and more. All you need to 
+   do is follow their lead!
+</p>
+<p>
+  Our community of automotive agents covers the entire country! Simply contact the nearest Bye Buy Car advisor to receive personalized 
+  assistance. Whether you're in Rabat, Casablanca, Tanger, or any region of Morroco, our agents are available and ready to assist you with 
+  your inquiries. 
+  Feel free to reach out to us, and we'll respond promptly!"
+</p>
+</div>
+
+<!-- HTML !-->
+<button class="button-24" role="button">Look for a consultant near me</button>
+
+</div>
+
+       
+      
+
+    </div>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <h1 class="titles">CUSTOMERS REVIEWS</h1>
+       </nav>
+       <section id="testimonials">
+       
+        <!--testimonials-box-container------>
+        <div class="testimonial-box-container">
+            <!--BOX-1-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Liam mendes</strong>
+                            <span>Liammendes</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+                </div>
+            </div>
+            <!--BOX-2-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Noah Wood</strong>
+                            <span>noahwood</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+                </div>
+            </div>
+            <!--BOX-3-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Oliver Queen</strong>
+                            <span>oliverqueen</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+                </div>
+            </div>
+            <!--BOX-4-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>Barry Allen</strong>
+                            <span>barryallen</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--Empty star-->
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+                </div>
+            </div>
+
+
+            <div class="testimonial-box">
+              <!--top------------------------->
+              <div class="box-top">
+                  <!--profile----->
+                  <div class="profile">
+                      <!--img---->
+                      <div class="profile-img">
+                          <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                      </div>
+                      <!--name-and-username-->
+                      <div class="name-user">
+                          <strong>Noah Wood</strong>
+                          <span>noahwood</span>
+                      </div>
+                  </div>
+                  <!--reviews------>
+                  <div class="reviews">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><!--Empty star-->
+                  </div>
+              </div>
+              <!--Comments---------------------------------------->
+              <div class="client-comment">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+              </div>
+          </div>
+
+          <div class="testimonial-box">
+            <!--top------------------------->
+            <div class="box-top">
+                <!--profile----->
+                <div class="profile">
+                    <!--img---->
+                    <div class="profile-img">
+                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                    </div>
+                    <!--name-and-username-->
+                    <div class="name-user">
+                        <strong>Noah Wood</strong>
+                        <span>noahwood</span>
+                    </div>
+                </div>
+                <!--reviews------>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><!--Empty star-->
+                </div>
+            </div>
+            <!--Comments---------------------------------------->
+            <div class="client-comment">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
+            </div>
+        </div>
+        </div>
+      </section>
+
+       
+
+    
+  
+     <!-- Site footer -->
+  <app-footer></app-footer>
+
+</div>

@@ -1,0 +1,342 @@
+<app-header></app-header>
+
+<div class="sellcar">
+
+  <div class="progressbar">
+    <div class="informations">
+      <div class="icon"><i class="bi bi-info"></i></div>
+      <div class="details">
+        <p>General informations</p>
+        <p>Fill the general informations about your car</p>
+      </div>
+          <i class="bi bi-chevron-right"></i>
+
+    </div>
+  
+
+    <div class="moredtls">
+      <div class="icon"><i class="bi bi-newspaper"></i></div>
+      <div class="details">
+        <p>Car details</p>
+        <p>Add more details about your car</p>
+      </div>
+      <i class="bi bi-chevron-right"></i>
+
+    </div>
+     
+
+  
+    <div class="images">
+      <div class="icon"><i class="bi bi-image"></i></div>
+      <div class="details">
+        <p>Car Pictures</p>
+        <p>Add your car pictures</p>
+      </div>
+    </div>
+  </div>
+  
+   
+       <div class="container-wrapper">
+       
+      <div class="container">
+        
+        <form (ngSubmit)="onSubmit()" class="register-form" id="register-form" enctype="multipart/form-data">
+          
+          <div class="form-group">
+            <label for="make">Make:</label>
+            <select id="make" [(ngModel)]="selectedMake" (change)="onMakeChange()">
+              <option value="">Make (Any)</option>
+              <option *ngFor="let make of makes" [value]="make.Name_makecar">{{ make.Name_makecar }}</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="model">Model:</label>
+            <select name="model" id="model" [disabled]="!selectedMake" [(ngModel)]="selectedModel">
+              <option value="">Model (Any)</option>
+              <option *ngFor="let model of models" [value]="model.Name_modelcar">{{ model.Name_modelcar }}</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="year">Year:</label>
+            <select [(ngModel)]="selectedYear" name="year">
+              <option value=""></option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="horsepower">Horse power:</label>
+            <input type="number" class="inputs" placeholder="Horse Power" [(ngModel)]="horsepower" name="horsepower">
+          </div>
+        
+          <div class="form-group">
+            <label for="kilometrage">Kilometrage:</label>
+            <input type="number" class="inputs" placeholder="Kilometrage in KM" [(ngModel)]="kilometrage" name="kilometrage">
+          </div>
+        
+          <div class="form-group">
+            <label>First hand:</label>
+            <input type="radio" id="yes" name="firsthand" value="Yes" [(ngModel)]="selectedFirstHand">
+            <label for="html" class="lbl">Yes</label>
+            <input type="radio" id="no" name="firsthand" value="No" [(ngModel)]="selectedFirstHand">
+            <label for="css" class="lbl">No</label>
+          </div>
+        
+          <div class="form-group">
+            <label for="doorsNumber">Doors number:</label>
+            <select name="doorsNumber" id="doorsNumber" [(ngModel)]="doorsNumber">
+              <option value=""></option>
+              <option value="3">3</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label>Fuel:</label>
+            <select name="fuel" id="fuel" [(ngModel)]="selectedFuel">
+              <option value=""></option>
+              <option value="Gas">Gas</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label>Transmission:</label>
+            <input type="radio" id="automatic" name="transmission" value="Automatic" [(ngModel)]="selectedTransmission">
+            <label for="automatic" class="lbl">Automatic</label>
+            <input type="radio" id="manual" name="transmission" value="Manual" [(ngModel)]="selectedTransmission">
+            <label for="manual" class="lbl">Manual</label>
+          </div>
+        
+          <div class="form-group">
+            <label for="sellPrice">Sell price:</label>
+            <input type="number" class="inputs" placeholder="Sell price in $" [(ngModel)]="sellPrice" name="sellPrice">
+          </div>
+
+          <div class="form-group">
+            <label for="pictures">Pictures:</label>
+            <div class="container">
+              <div class="row it">
+                <div class="col-sm-offset-1 col-sm-10">
+                  <p>Please upload documents only in 'jpg', 'jpeg' & 'png'.</p><br>
+                  <div id="uploader">
+                    <div *ngFor="let upload of uploads; let i = index" class="row uploadDoc">
+                      <div class="col-sm-3">
+                        <div class="docErr">Please upload a valid file</div>
+                        <div *ngIf="!upload.preview" class="fileUpload btn btn-orange">
+                          <span class="upl" id="upload" (click)="previewImage(i)"><i class="fa fa-upload" aria-hidden="true"></i> Upload picture</span>
+                          <input type="file" class="upload up" id="up{{i}}" (change)="onFileSelected($event, i)" accept="image/*" />
+                        </div>
+                        <img *ngIf="upload.preview" [src]="upload.preview" alt="Preview" class="img-preview" />
+                      </div>
+                      <div class="col-sm-1"><button class="delete" (click)="removeUpload(i)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                    </div>
+                  </div>
+                  <div class="addnew">
+                    <button class="new" (click)="addNewUpload($event)"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add new picture</button>
+                    
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            
+
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea name="description" class="form-control" id="description" cols="30" rows="4" placeholder="Description" [(ngModel)]="description"></textarea>
+            </div>
+          
+            <div class="form-submit">
+              <input type="submit" value="Sell" class="submit" name="submit" id="submit" />
+            </div>
+          </form>
+
+          <div class="alert alert-success d-flex align-items-center" role="alert" *ngIf="carAdded">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+              Car Added Successfully!
+            </div>
+          </div>
+          
+      </div>
+      <div class="ctn">
+        <h2 class="icon-heading">
+          <span class="mdi mdi-lightbulb-on-outline"></span> How to describe my car
+        </h2>
+        
+        <p class="dscrb">
+          <i class="bi bi-info-circle"></i> Choosing the make and model is important because it provides potential buyers with specific information about the item you are selling.<br>
+           It also helps attract the target audience who are looking for that specific brand or model. <br>
+          A title should be catchy and concise, it should give a clear idea of ​​what the product is and what it is used for. <br>
+          The description should provide more information about the product, such as its features, condition and age, 
+          as well as any other information that might be relevant for the clients.<br> 
+          Providing a price and detailed information about the item can help attract the target audience, 
+          build trust with potential buyers and help them make an informed decision about purchasing the item.
+        </p>
+       </div>
+       </div>
+       
+    <nav class="navbar navbar-dark bg-dark">
+        <h1 class="titles">HOW TO SELL YOUR CAR WITH US</h1>
+       </nav>
+    <div class="howto">
+<div class="how1">
+    <i class="bi bi-cash-coin"></i>
+    <h2>1. Instant valuation</h2>
+    <p>Using the latest market data and previous sales, we’ll tell you what your car’s really worth.</p>
+</div>
+<div class="how2">
+    <i class="bi bi-car-front-fill"></i>
+    <h2>2. Sell your car hassle-free</h2>
+    <p>While you go about your day we can advertise your car to 4k+ trusted dealers in our online auctions.</p>
+</div>
+<div class="how3">
+    <i class="bi bi-bank2"></i>
+    <h2>3. Easy payment, free collection</h2>
+    <p>Once the auction ends, you can choose to accept your best offer and we'll connect you to the winning buyer.</p>
+</div>
+
+    </div>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <h1 class="titles">ADVICES FOR YOUR SELLING</h1>
+       </nav>
+
+
+       <div class="wrapper">
+       <div class="containers">
+         <div class="square">
+           <img src="https://cdcssl.ibsrv.net/autodata/images/?img=USC50MBCAU1A01305.jpg&width=660" class="mask">
+           <div class="content">
+             <div class="h1">Is Apple a Design Company?</div>
+             <p>Apple is more than a tech company; it became a culture unto itself, a passion of most of people and the birthplace of the world’s most revolutionized products.</p>
+             <div><a href="https://medium.com/@laheshk/is-apple-a-design-company-f5c83514e261" target="_" class="button">Read More</a></div>
+           </div>
+         </div>
+       </div>
+     
+       <div class="containers">
+         <div class="square">
+           <img src="https://robbreport.com/wp-content/uploads/2023/06/aehrasedan00.jpg?w=1000" class="mask">
+           <div class="content">
+             <div class="h1">Is Apple a Design Company?</div>
+             <p>Apple is more than a tech company; it became a culture unto itself, a passion of most of people and the birthplace of the world’s most revolutionized products.</p>
+             <div><a href="https://medium.com/@laheshk/is-apple-a-design-company-f5c83514e261" target="_" class="button">Read More</a></div>
+           </div>
+         </div>
+       </div>
+     
+       <div class="containers">
+         <div class="square">
+           <img src="https://media.architecturaldigest.com/photos/63079fc7b4858efb76814bd2/16:9/w_4000,h_2250,c_limit/9.%20DeLorean-Alpha-5%20%5BDeLorean%5D.jpg" class="mask">
+           <div class="content">
+             <div class="h1">Is Apple a Design Company?</div>
+             <p>Apple is more than a tech company; it became a culture unto itself, a passion of most of people and the birthplace of the world’s most revolutionized products.</p>
+             <div><a href="https://medium.com/@laheshk/is-apple-a-design-company-f5c83514e261" target="_" class="button">Read More</a></div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <nav class="navbar navbar-dark bg-dark">
+        <h1 class="titles">WHAT OUR CUSTOMERS SAY</h1>
+       </nav>
+
+
+       <div class="outerdiv">
+        <div class="innerdiv">
+          <!-- div1 -->
+          <div class="div1 eachdiv">
+            <div class="userdetails">
+              <div class="imgbox">
+                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg" alt="">
+              </div>
+              <div class="detbox">
+                <p class="name">Daniel Clifford</p>
+                <p class="designation">Verified Graduate</p>
+              </div>
+            </div>
+            <div class="review">
+              <h4>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny’s worth.</h4>
+            <p>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
+            </div>
+          </div>
+          <!-- div2 -->
+          <div class="div2 eachdiv">
+            <div class="userdetails">
+              <div class="imgbox">
+                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg" alt="">
+              </div>
+              <div class="detbox">
+                <p class="name">Jonathan Walters</p>
+                <p class="designation">Verified Graduate</p>
+              </div>
+            </div>
+            <div class="review">
+              <h4>The team was very supportive and kept me motivated</h4>
+            <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investments I’ve made in myself. ”</p>
+            </div>
+          </div>
+          <!-- div3 -->
+          <div class="div3 eachdiv">
+            <div class="userdetails">
+              <div class="imgbox">
+                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg" alt="">
+              </div>
+              <div class="detbox">
+                <p class="name dark">Kira Whittle</p>
+                <p class="designation dark">Verified Graduate</p>
+              </div>
+            </div>
+            <div class="review dark">
+              <h4>Such a life-changing experience. Highly recommended!</h4>
+              <p>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I’ve often referred to it during interviews as an example of experience. It certainly helped me land a job as a full-stack 100% recommend! ”</p>
+            </div>
+          </div>
+          <!-- div4 -->
+          <div class="div4 eachdiv">
+            <div class="userdetails">
+              <div class="imgbox">
+                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg" alt="">
+              </div>
+              <div class="detbox">
+                <p class="name dark">Jeanette Harmon</p>
+                <p class="designation dark">Verified Graduate</p>
+              </div>
+            </div>
+            <div class="review dark">
+              <h4>An overall wonderful and rewarding experience</h4>
+            <p>“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love. ”</p>
+            </div>
+          </div>
+          <!-- div5 -->
+          <div class="div5 eachdiv">
+            <div class="userdetails">
+              <div class="imgbox">
+                <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg" alt="">
+              </div>
+              <div class="detbox">
+                <p class="name">Patrick Abrams</p>
+                <p class="designation">Verified Graduate</p>
+              </div>
+            </div>
+            <div class="review">
+              <h4>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</h4>
+            <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as a capable junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. ”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+
+
+<app-footer></app-footer>
+
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4852050b7c56446091f570d42e5f357f" Name="Diagram1">
+        <EntityTypeShape EntityType="Dream_carModel.Admin" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dream_carModel.Car_advice" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dream_carModel.Cars_Reviews" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dream_carModel.News" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dream_carModel.Consulters" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Dream_carModel.FK1_caradvice" ManuallyRouted="false" />
+        <AssociationConnector Association="Dream_carModel.FK1_carreviews" ManuallyRouted="false" />
+        <AssociationConnector Association="Dream_carModel.FK1_news" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Dream_carModel.Car_make" Width="1.5" PointX="5.375" PointY="5" />
+        <EntityTypeShape EntityType="Dream_carModel.Car_model" Width="1.5" PointX="7.625" PointY="4.875" />
+        <EntityTypeShape EntityType="Dream_carModel.Car_type" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="Dream_carModel.FK1_carmodel" />
+        <EntityTypeShape EntityType="Dream_carModel.News_type" Width="1.5" PointX="7.375" PointY="7.875" />
+        <AssociationConnector Association="Dream_carModel.FK2_News" />
+        <EntityTypeShape EntityType="Dream_carModel.Users" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Dream_carModel.Vehicule" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Dream_carModel.Car_Model1" Width="1.5" PointX="7.625" PointY="13" />
+        <AssociationConnector Association="Dream_carModel.FK__Car_Model__Name___7A672E12" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

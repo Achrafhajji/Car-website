@@ -1,0 +1,126 @@
+<div>
+  <div>
+    <div class="carousel" #carousel (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
+      <ul class="slides">
+        <div *ngFor="let newsItem of news; let i = index">
+          <!-- Carousel Slide -->
+          <input type="radio" name="radio-buttons" [id]="'img-' + (i + 1)" [checked]="i === 0" />
+          <li class="slide-container">
+            <!-- Carousel Slide Content -->
+            <div class="slide-image">
+              <img [src]="'data:image/jpeg;base64,' + newsItem.Pic_news">
+              <div class="slide-content">
+                <!-- Your existing content for each slide -->
+               
+                 
+           
+            <p class="newstype"> {{newsItem.Typenews_news}}</p>
+                <h2 class="title">{{newsItem.Title_news}}</h2>
+                <p class="subtitle">{{newsItem.Subtitle_news}}</p>
+                <div class="carousel-know-more">
+                  
+                </div>
+                <figcaption>By <span style="color: red;">{{newsItem.Name_admin}} {{newsItem.Surname_admin}}</span></figcaption>
+              </div>
+            
+            </div>
+           
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+              <label [for]="i === 0 ? 'img-' + news.length : 'img-' + i" class="prev-slide">
+                <span>&lsaquo;</span>
+              </label>
+              <label [for]="(i + 1) % news.length === 0 ? 'img-1' : 'img-' + (i + 2)" class="next-slide">
+                <span>&rsaquo;</span>
+              </label>
+            </div>
+          </li>
+
+          <!-- Carousel Dots -->
+          <div class="carousel-dots">
+            <label *ngFor="let dotIndex of getArray(news.length)" [for]="'img-' + dotIndex" class="carousel-dot" [id]="'img-dot-' + dotIndex"></label>
+          </div>
+
+         
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  <div class="half-black-half-red">More News</div>
+  <div class="form-group"> 
+    <h1><span style="color: red;">F</span>ilter By :</h1>
+    <form (ngSubmit)="searchNews()">     
+       <label class="label" for="Newstype">News Type :</label>
+      <select name="Newstype" id="Newstype" [(ngModel)]="selectedNewsType">
+        <option value="">News Type(Any)</option>
+        <option *ngFor="let type of typesNews" [value]="type.Name_newstype">{{ type.Name_newstype }}</option>
+      </select>
+<button class="button-33" role="button" type="submit" >Search</button>
+    </form>
+  </div>
+  
+
+
+
+  <div class="article-cards-container"  >
+  <div class="center"  *ngFor="let new of newsnews; let i = index">
+      <div class="article-card"  data-toggle="modal"[attr.data-target]="'#modalnews' + i">
+        <div class="content">
+          <div class="souscontent">
+           <div class="divtype"> <p class="typenews">{{new.Typenews_news}}</p></div> 
+          <p class="date">Jan 1, 2022</p>
+          </div>
+        
+           
+          <p class="title">{{new.Title_news}}</p>
+          <p class="subtitle">{{new.Subtitle_news}}</p>
+        </div>
+        <img [src]="'data:image/jpeg;base64,' + new.Pic_news" alt="article-cover"/> 
+      </div>
+      <div class="autor">
+           <figcaption class="caption"><i class="bi bi-chat-left"></i>   BY {{new.Name_admin}} {{new.Surname_admin}}</figcaption> 
+      </div>
+    </div>
+    
+   
+    </div>
+
+   
+
+    
+
+
+
+ <!-- Modal -->
+          <div *ngFor="let newsItem of newsnews; let i = index">
+            <div class="modal fade" [id]="'modalnews' + i" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content modal-content-small">
+                  <div class="modal-body mx-3">
+                    <div class="container">
+                      <div class="screen">
+                        <div class="screen__content">
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                          <div class="modal-content-details">
+                            <img [src]="'data:image/jpeg;base64,' + newsItem.Pic_news" alt="" class="img-fluid">
+                            <div class="modal-text">
+                              <h2 class="modal-title">{{newsItem.Title_news}}</h2>
+                              <p class="modal-subtitle">{{newsItem.Subtitle_news}}</p>
+                              <p class="modal-description">{{newsItem.Description_news}}</p>
+                              <div class="divcaption">
+                                <figcaption class="modal-caption"><i class="bi bi-chat-left-fill"></i> POSTED BY {{newsItem.Name_admin}} {{newsItem.Surname_admin}} ON </figcaption>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Modal -->

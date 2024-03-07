@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Dream_carModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id_admin" />
+          </Key>
+          <Property Name="Name_admin" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname_admin" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresse_admin" Type="ntext" Nullable="false" />
+          <Property Name="Email_admin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password_admin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car_advice">
+          <Key>
+            <PropertyRef Name="Id_advice" />
+          </Key>
+          <Property Name="Id_advice" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title_advice" Type="ntext" Nullable="false" />
+          <Property Name="Description_advice" Type="ntext" Nullable="false" />
+          <Property Name="Picture_advice" Type="image" Nullable="false" />
+          <Property Name="Id_admin" Type="int" />
+          <Property Name="Resume_advice" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Car_make">
+          <Key>
+            <PropertyRef Name="Name_makecar" />
+          </Key>
+          <Property Name="Id_makecar" Type="int" Nullable="false" />
+          <Property Name="Name_makecar" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car_Model">
+          <Key>
+            <PropertyRef Name="Id_ModelCar" />
+          </Key>
+          <Property Name="Id_ModelCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_modelcar" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name_makecar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Car_type">
+          <Key>
+            <PropertyRef Name="Name_typecar" />
+          </Key>
+          <Property Name="Id_typecar" Type="int" Nullable="false" />
+          <Property Name="Name_typecar" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cars_Reviews">
+          <Key>
+            <PropertyRef Name="Id_review" />
+          </Key>
+          <Property Name="Id_review" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title_review" Type="ntext" Nullable="false" />
+          <Property Name="Description_review" Type="ntext" Nullable="false" />
+          <Property Name="Picture_review" Type="image" Nullable="false" />
+          <Property Name="Id_admin" Type="int" />
+        </EntityType>
+        <EntityType Name="Consulters">
+          <Key>
+            <PropertyRef Name="Id_consulter" />
+          </Key>
+          <Property Name="Id_consulter" Type="int" Nullable="false" />
+          <Property Name="Name_consulter" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname_consulter" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fonction_consulter" Type="ntext" Nullable="false" />
+          <Property Name="Email_consulter" Type="ntext" Nullable="false" />
+          <Property Name="Password_consulter" Type="ntext" Nullable="false" />
+          <Property Name="Id_admin" Type="int" Nullable="false" />
+          <Property Name="Picture_consulter" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id_news" />
+          </Key>
+          <Property Name="Id_news" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title_news" Type="ntext" Nullable="false" />
+          <Property Name="Description_news" Type="ntext" Nullable="false" />
+          <Property Name="Pic_news" Type="image" Nullable="false" />
+          <Property Name="Id_admin" Type="int" />
+          <Property Name="Subtitle_news" Type="ntext" />
+          <Property Name="typenews_news" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="News_type">
+          <Key>
+            <PropertyRef Name="Name_newstype" />
+          </Key>
+          <Property Name="Id_newstype" Type="int" Nullable="false" />
+          <Property Name="Name_newstype" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id_user" />
+          </Key>
+          <Property Name="Id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_user" Type="varchar" MaxLength="50" />
+          <Property Name="Surname_user" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber_user" Type="varchar" MaxLength="50" />
+          <Property Name="City_user" Type="varchar" MaxLength="50" />
+          <Property Name="Adresse_user" Type="varchar(max)" />
+          <Property Name="Email_user" Type="varchar(max)" />
+          <Property Name="Password_user" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Vehicule">
+          <Key>
+            <PropertyRef Name="Vehicule_ID" />
+          </Key>
+          <Property Name="Vehicule_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vehicule_Make" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Vehicule_Model" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Vehicule_Year" Type="int" Nullable="false" />
+          <Property Name="Vehicule_Horsepower" Type="int" Nullable="false" />
+          <Property Name="Vehicule_Kilometrage" Type="int" Nullable="false" />
+          <Property Name="Vehicule_FirstHand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vehicule_DoorsNumber" Type="int" Nullable="false" />
+          <Property Name="Vehicule_Fuel" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Vehicule_Transmission" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vehicule_SellPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Vehicule_Pictures" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Vehicule_Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostingTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Car_Model__Name___7A672E12">
+          <End Role="Car_make" Type="Self.Car_make" Multiplicity="0..1" />
+          <End Role="Car_Model" Type="Self.Car_Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car_make">
+              <PropertyRef Name="Name_makecar" />
+            </Principal>
+            <Dependent Role="Car_Model">
+              <PropertyRef Name="Name_makecar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_caradvice">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Car_advice" Type="Self.Car_advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="Car_advice">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_carreviews">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Cars_Reviews" Type="Self.Cars_Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="Cars_Reviews">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_news">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK2_News">
+          <End Role="News_type" Type="Self.News_type" Multiplicity="0..1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News_type">
+              <PropertyRef Name="Name_newstype" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="typenews_news" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dream_carModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_advice" EntityType="Self.Car_advice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_make" EntityType="Self.Car_make" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_Model" EntityType="Self.Car_Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car_type" EntityType="Self.Car_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cars_Reviews" EntityType="Self.Cars_Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consulters" EntityType="Self.Consulters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News_type" EntityType="Self.News_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicule" EntityType="Self.Vehicule" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Car_Model__Name___7A672E12" Association="Self.FK__Car_Model__Name___7A672E12">
+            <End Role="Car_make" EntitySet="Car_make" />
+            <End Role="Car_Model" EntitySet="Car_Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_caradvice" Association="Self.FK1_caradvice">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Car_advice" EntitySet="Car_advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_carreviews" Association="Self.FK1_carreviews">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Cars_Reviews" EntitySet="Cars_Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_news" Association="Self.FK1_news">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK2_News" Association="Self.FK2_News">
+            <End Role="News_type" EntitySet="News_type" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Dream_carModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id_admin" />
+          </Key>
+          <Property Name="Name_admin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_admin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresse_admin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email_admin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password_admin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Car_advice" Relationship="Self.FK1_caradvice" FromRole="Admin" ToRole="Car_advice" />
+          <NavigationProperty Name="Cars_Reviews" Relationship="Self.FK1_carreviews" FromRole="Admin" ToRole="Cars_Reviews" />
+          <NavigationProperty Name="News" Relationship="Self.FK1_news" FromRole="Admin" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Car_advice">
+          <Key>
+            <PropertyRef Name="Id_advice" />
+          </Key>
+          <Property Name="Id_advice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title_advice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_advice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture_advice" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Id_admin" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK1_caradvice" FromRole="Car_advice" ToRole="Admin" />
+          <Property Name="Resume_advice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cars_Reviews">
+          <Key>
+            <PropertyRef Name="Id_review" />
+          </Key>
+          <Property Name="Id_review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title_review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture_review" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Id_admin" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK1_carreviews" FromRole="Cars_Reviews" ToRole="Admin" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id_news" />
+          </Key>
+          <Property Name="Id_news" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pic_news" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Id_admin" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK1_news" FromRole="News" ToRole="Admin" />
+          <Property Name="Subtitle_news" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="typenews_news" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="News_type" Relationship="Dream_carModel.FK2_News" FromRole="News" ToRole="News_type" />
+        </EntityType>
+        <EntityType Name="Consulters">
+          <Key>
+            <PropertyRef Name="Id_consulter" />
+            <PropertyRef Name="Name_consulter" />
+            <PropertyRef Name="Surname_consulter" />
+            <PropertyRef Name="Fonction_consulter" />
+            <PropertyRef Name="Email_consulter" />
+            <PropertyRef Name="Password_consulter" />
+            <PropertyRef Name="Id_admin" />
+          </Key>
+          <Property Name="Id_consulter" Type="Int32" Nullable="false" />
+          <Property Name="Name_consulter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname_consulter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fonction_consulter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email_consulter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password_consulter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_admin" Type="Int32" Nullable="false" />
+          <Property Name="Picture_consulter" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK1_caradvice">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Car_advice" Type="Self.Car_advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="Car_advice">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_carreviews">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Cars_Reviews" Type="Self.Cars_Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="Cars_Reviews">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_news">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="Id_admin" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="Id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dream_carEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Car_advice" EntityType="Self.Car_advice" />
+          <EntitySet Name="Cars_Reviews" EntityType="Self.Cars_Reviews" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Consulters" EntityType="Self.Consulters" />
+          <AssociationSet Name="FK1_caradvice" Association="Self.FK1_caradvice">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Car_advice" EntitySet="Car_advice" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_carreviews" Association="Self.FK1_carreviews">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Cars_Reviews" EntitySet="Cars_Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_news" Association="Self.FK1_news">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <EntitySet Name="Car_make" EntityType="Dream_carModel.Car_make" />
+          <EntitySet Name="Car_model" EntityType="Dream_carModel.Car_model" />
+          <EntitySet Name="Car_type" EntityType="Dream_carModel.Car_type" />
+          <AssociationSet Name="FK1_carmodel" Association="Dream_carModel.FK1_carmodel">
+            <End Role="Car_make" EntitySet="Car_make" />
+            <End Role="Car_model" EntitySet="Car_model" />
+          </AssociationSet>
+          <EntitySet Name="News_type" EntityType="Dream_carModel.News_type" />
+          <AssociationSet Name="FK2_News" Association="Dream_carModel.FK2_News">
+            <End Role="News_type" EntitySet="News_type" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="Dream_carModel.Users" />
+          <EntitySet Name="Vehicule" EntityType="Dream_carModel.Vehicule" />
+          <EntitySet Name="Car_Model1Set" EntityType="Dream_carModel.Car_Model1" />
+          <AssociationSet Name="FK__Car_Model__Name___7A672E12" Association="Dream_carModel.FK__Car_Model__Name___7A672E12">
+            <End Role="Car_make" EntitySet="Car_make" />
+            <End Role="Car_Model1" EntitySet="Car_Model1Set" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Car_make">
+          <Key>
+            <PropertyRef Name="Name_makecar" />
+          </Key>
+          <Property Name="Id_makecar" Type="Int32" Nullable="false" />
+          <Property Name="Name_makecar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Car_model" Relationship="Dream_carModel.FK1_carmodel" FromRole="Car_make" ToRole="Car_model" />
+          <NavigationProperty Name="Car_Model" Relationship="Dream_carModel.FK__Car_Model__Name___7A672E12" FromRole="Car_make" ToRole="Car_Model1" />
+        </EntityType>
+        <EntityType Name="Car_model">
+          <Key>
+            <PropertyRef Name="Name_modelcar" />
+          </Key>
+          <Property Name="Id_modelcar" Type="Int32" Nullable="false" />
+          <Property Name="Name_modelcar" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name_makecar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Car_make" Relationship="Dream_carModel.FK1_carmodel" FromRole="Car_model" ToRole="Car_make" />
+        </EntityType>
+        <EntityType Name="Car_type">
+          <Key>
+            <PropertyRef Name="Name_typecar" />
+          </Key>
+          <Property Name="Id_typecar" Type="Int32" Nullable="false" />
+          <Property Name="Name_typecar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK1_carmodel">
+          <End Type="Dream_carModel.Car_make" Role="Car_make" Multiplicity="1" />
+          <End Type="Dream_carModel.Car_model" Role="Car_model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car_make">
+              <PropertyRef Name="Name_makecar" />
+            </Principal>
+            <Dependent Role="Car_model">
+              <PropertyRef Name="Name_makecar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="News_type">
+          <Key>
+            <PropertyRef Name="Name_newstype" />
+          </Key>
+          <Property Name="Id_newstype" Type="Int32" Nullable="false" />
+          <Property Name="Name_newstype" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="News" Relationship="Dream_carModel.FK2_News" FromRole="News_type" ToRole="News" />
+        </EntityType>
+        <Association Name="FK2_News">
+          <End Type="Dream_carModel.News_type" Role="News_type" Multiplicity="0..1" />
+          <End Type="Dream_carModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News_type">
+              <PropertyRef Name="Name_newstype" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="typenews_news" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id_user" />
+          </Key>
+          <Property Name="Id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vehicule">
+          <Key>
+            <PropertyRef Name="Vehicule_ID" />
+          </Key>
+          <Property Name="Vehicule_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vehicule_Make" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicule_Model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicule_Year" Type="Int32" Nullable="false" />
+          <Property Name="Vehicule_Horsepower" Type="Int32" Nullable="false" />
+          <Property Name="Vehicule_Kilometrage" Type="Int32" Nullable="false" />
+          <Property Name="Vehicule_FirstHand" Type="Boolean" />
+          <Property Name="Vehicule_DoorsNumber" Type="Int32" Nullable="false" />
+          <Property Name="Vehicule_Fuel" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicule_Transmission" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vehicule_SellPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Vehicule_Pictures" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Vehicule_Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostingTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Car_Model1">
+          <Key>
+            <PropertyRef Name="Id_ModelCar" />
+          </Key>
+          <Property Name="Id_ModelCar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_modelcar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name_makecar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Car_make" Relationship="Dream_carModel.FK__Car_Model__Name___7A672E12" FromRole="Car_Model1" ToRole="Car_make" />
+        </EntityType>
+        <Association Name="FK__Car_Model__Name___7A672E12">
+          <End Type="Dream_carModel.Car_make" Role="Car_make" Multiplicity="0..1" />
+          <End Type="Dream_carModel.Car_Model1" Role="Car_Model1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car_make">
+              <PropertyRef Name="Name_makecar" />
+            </Principal>
+            <Dependent Role="Car_Model1">
+              <PropertyRef Name="Name_makecar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Dream_carModelStoreContainer" CdmEntityContainer="Dream_carEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="Dream_carModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Name_admin" ColumnName="Name_admin" />
+                <ScalarProperty Name="Surname_admin" ColumnName="Surname_admin" />
+                <ScalarProperty Name="Adresse_admin" ColumnName="Adresse_admin" />
+                <ScalarProperty Name="Email_admin" ColumnName="Email_admin" />
+                <ScalarProperty Name="Password_admin" ColumnName="Password_admin" />
+                <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_advice">
+            <EntityTypeMapping TypeName="Dream_carModel.Car_advice">
+              <MappingFragment StoreEntitySet="Car_advice">
+                <ScalarProperty Name="Resume_advice" ColumnName="Resume_advice" />
+                <ScalarProperty Name="Id_advice" ColumnName="Id_advice" />
+                <ScalarProperty Name="Title_advice" ColumnName="Title_advice" />
+                <ScalarProperty Name="Description_advice" ColumnName="Description_advice" />
+                <ScalarProperty Name="Picture_advice" ColumnName="Picture_advice" />
+                <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars_Reviews">
+            <EntityTypeMapping TypeName="Dream_carModel.Cars_Reviews">
+              <MappingFragment StoreEntitySet="Cars_Reviews">
+                <ScalarProperty Name="Id_review" ColumnName="Id_review" />
+                <ScalarProperty Name="Title_review" ColumnName="Title_review" />
+                <ScalarProperty Name="Description_review" ColumnName="Description_review" />
+                <ScalarProperty Name="Picture_review" ColumnName="Picture_review" />
+                <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="Dream_carModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="typenews_news" ColumnName="typenews_news" />
+                <ScalarProperty Name="Subtitle_news" ColumnName="Subtitle_news" />
+                <ScalarProperty Name="Id_news" ColumnName="Id_news" />
+                <ScalarProperty Name="Title_news" ColumnName="Title_news" />
+                <ScalarProperty Name="Description_news" ColumnName="Description_news" />
+                <ScalarProperty Name="Pic_news" ColumnName="Pic_news" />
+                <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consulters">
+            <EntityTypeMapping TypeName="Dream_carModel.Consulters">
+              <MappingFragment StoreEntitySet="Consulters">
+                <ScalarProperty Name="Id_consulter" ColumnName="Id_consulter" />
+                <ScalarProperty Name="Name_consulter" ColumnName="Name_consulter" />
+                <ScalarProperty Name="Surname_consulter" ColumnName="Surname_consulter" />
+                <ScalarProperty Name="Fonction_consulter" ColumnName="Fonction_consulter" />
+                <ScalarProperty Name="Email_consulter" ColumnName="Email_consulter" />
+                <ScalarProperty Name="Password_consulter" ColumnName="Password_consulter" />
+                <ScalarProperty Name="Id_admin" ColumnName="Id_admin" />
+                <ScalarProperty Name="Picture_consulter" ColumnName="Picture_consulter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_make">
+            <EntityTypeMapping TypeName="Dream_carModel.Car_make">
+              <MappingFragment StoreEntitySet="Car_make">
+                <ScalarProperty Name="Name_makecar" ColumnName="Name_makecar" />
+                <ScalarProperty Name="Id_makecar" ColumnName="Id_makecar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_type">
+            <EntityTypeMapping TypeName="Dream_carModel.Car_type">
+              <MappingFragment StoreEntitySet="Car_type">
+                <ScalarProperty Name="Name_typecar" ColumnName="Name_typecar" />
+                <ScalarProperty Name="Id_typecar" ColumnName="Id_typecar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News_type">
+            <EntityTypeMapping TypeName="Dream_carModel.News_type">
+              <MappingFragment StoreEntitySet="News_type">
+                <ScalarProperty Name="Name_newstype" ColumnName="Name_newstype" />
+                <ScalarProperty Name="Id_newstype" ColumnName="Id_newstype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Dream_carModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password_user" ColumnName="Password_user" />
+                <ScalarProperty Name="Email_user" ColumnName="Email_user" />
+                <ScalarProperty Name="Adresse_user" ColumnName="Adresse_user" />
+                <ScalarProperty Name="City_user" ColumnName="City_user" />
+                <ScalarProperty Name="Phonenumber_user" ColumnName="Phonenumber_user" />
+                <ScalarProperty Name="Surname_user" ColumnName="Surname_user" />
+                <ScalarProperty Name="Name_user" ColumnName="Name_user" />
+                <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicule">
+            <EntityTypeMapping TypeName="Dream_carModel.Vehicule">
+              <MappingFragment StoreEntitySet="Vehicule">
+                <ScalarProperty Name="PostingTime" ColumnName="PostingTime" />
+                <ScalarProperty Name="Vehicule_Description" ColumnName="Vehicule_Description" />
+                <ScalarProperty Name="Vehicule_Pictures" ColumnName="Vehicule_Pictures" />
+                <ScalarProperty Name="Vehicule_SellPrice" ColumnName="Vehicule_SellPrice" />
+                <ScalarProperty Name="Vehicule_Transmission" ColumnName="Vehicule_Transmission" />
+                <ScalarProperty Name="Vehicule_Fuel" ColumnName="Vehicule_Fuel" />
+                <ScalarProperty Name="Vehicule_DoorsNumber" ColumnName="Vehicule_DoorsNumber" />
+                <ScalarProperty Name="Vehicule_FirstHand" ColumnName="Vehicule_FirstHand" />
+                <ScalarProperty Name="Vehicule_Kilometrage" ColumnName="Vehicule_Kilometrage" />
+                <ScalarProperty Name="Vehicule_Horsepower" ColumnName="Vehicule_Horsepower" />
+                <ScalarProperty Name="Vehicule_Year" ColumnName="Vehicule_Year" />
+                <ScalarProperty Name="Vehicule_Model" ColumnName="Vehicule_Model" />
+                <ScalarProperty Name="Vehicule_Make" ColumnName="Vehicule_Make" />
+                <ScalarProperty Name="Vehicule_ID" ColumnName="Vehicule_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Car_Model1Set">
+            <EntityTypeMapping TypeName="Dream_carModel.Car_Model1">
+              <MappingFragment StoreEntitySet="Car_Model">
+                <ScalarProperty Name="Name_makecar" ColumnName="Name_makecar" />
+                <ScalarProperty Name="Name_modelcar" ColumnName="Name_modelcar" />
+                <ScalarProperty Name="Id_ModelCar" ColumnName="Id_ModelCar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

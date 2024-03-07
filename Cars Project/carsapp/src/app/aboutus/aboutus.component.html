@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<div class="abt">
+  <img src="assets/abt.jpg" alt="">
+  <div class="content">
+    <h2>Dream Car</h2>
+    <h3>The best car buying experience ever existed</h3>
+    <p>
+      At DreamCar, we are passionate about providing our customers with the ultimate car-buying experience. 
+      With a commitment to excellence and a focus on customer satisfaction, we strive to be the premier destination for individuals seeking 
+      their dream vehicle.
+    </p>
+  </div>
+</div>
+<div class="mission">
+  <div class="mission-content">
+    <h2>Our mission</h2>
+    <p>
+      Our mission at DreamCar is simple: to make your car-buying journey as seamless and enjoyable as possible. 
+      We aim to exceed your expectations at every step, from browsing our extensive inventory to driving off in your perfect car.
+    </p>
+  </div>
+    <img src="assets/msn.jpg" alt="">
+
+</div>
+
+<div class="values">
+          <img src="assets/vls.jpg" alt="">
+
+   <div class="values-content">
+  <h2>Our Values</h2>
+  <p>
+    <span>Integrity :</span>
+    We operate with honesty, transparency, and fairness in all our dealings.
+  </p>
+  <p>
+    <span>Customer Focus :</span>
+    Your needs and satisfaction are at the forefront of everything we do.
+  </p>
+  <p>
+    <span>Innovation :</span>
+    We continually innovate and adapt to provide you with the best car-buying experience.
+  </p>
+  <p>
+    <span>Community :</span>
+    We are proud to be a part of the community and are committed to giving back.
+  </p>
+  </div>
+
+</div>
+
+  
+<div class="team">
+<h1>Our Team</h1>
+<p class="tm">Behind DreamCar is a dedicated team of professionals who are passionate about cars and dedicated to providing exceptional service.
+   From our sales representatives to our finance experts, everyone at DreamCar is committed to helping you find the perfect vehicle to 
+   suit your needs and lifestyle.</p>
+   <div class="container">
+    <div class="card" *ngFor="let consulter of consulters">
+      <img [src]="'data:image/jpeg;base64,' + consulter.Picture_consulter" alt="Person" class="card__image">
+      <p class="card__name">{{ consulter.Name_consulter }} {{ consulter.Surname_consulter }}</p>
+     <p class="card__fct">{{ consulter.Fonction_consulter }}</p>
+      <ul class="social-icons">
+        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+        <li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+      </ul>
+     
+  
+    </div>
+  
+  
+  </div>
+</div>
+<app-footer></app-footer>

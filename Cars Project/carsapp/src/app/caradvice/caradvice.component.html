@@ -1,0 +1,36 @@
+<div class="row">
+    <div *ngFor="let advice of advices; let i = index" class="col-12 col-sm-6 col-md-4">
+      <div class="wrapper">
+        <div class="container">
+          <div class="square">
+            <img [src]="'data:image/jpeg;base64,' + advice.Picture_advice" class="mask">
+            <div class="content">
+              <div class="h1">{{ advice.Title_advice }}</div>
+              <p>{{ advice.Resume_advice }}.</p>
+              <div><a href="" class="button" data-toggle="modal" [attr.data-target]="'#modaladvice' + i">Know More</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngFor="let advice of advices; let i = index" class="modal fade" [id]="'modaladvice' + i" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content modal-content-small">
+        <div class="modal-body mx-3">
+          <div class="container">
+            <div class="screen">
+              <div class="screen__content">
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <img [src]="'data:image/jpeg;base64,' + advice.Picture_advice" alt="" class="custom-modal-image">
+                <h2>{{ advice.Title_advice }}</h2>
+                <p class="text">{{ advice.Description_advice }}.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

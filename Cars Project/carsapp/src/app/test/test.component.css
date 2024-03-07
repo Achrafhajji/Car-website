@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+.container{
+  z-index: 99;
+}
+.wrapper-warning {
+    margin: 120px;
+  }
+  .wrapper-warning .card {
+    width: 720px;
+    height: 120px;
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-left: 5px solid #fd2020;
+    border-radius: 3px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  .wrapper-warning .card .subject {
+    margin-right: 180px;
+  }
+  .wrapper-warning .card .subject p {
+    color: #909092;
+  }
+  .wrapper-warning .card .fa-exclamation-circle {
+    font-size: 28px;
+    color: #fd2020;
+    margin-right: 650px;
+    margin-bottom: 30px;
+
+  }
+  .wrapper-warning .card .icon-times {
+    font-size: 28px;
+    color: #c3c2c7;
+    cursor: pointer;
+    margin-left: 620px;
+    margin-bottom: 80px;
+
+  }

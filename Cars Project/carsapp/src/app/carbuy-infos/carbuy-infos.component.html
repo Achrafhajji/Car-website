@@ -1,0 +1,180 @@
+<app-header></app-header>
+<div class="page">
+	<nav class="navbar navbar-dark bg-dark">
+		<h1 class="titles">OUR SPONSORS</h1>
+	   </nav>
+
+<div class="slider">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="https://logolook.net/wp-content/uploads/2022/05/Mercedes-Benz-Logo.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://logowik.com/content/uploads/images/879_audi.jpg" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://clipart-library.com/new_gallery/30560_coca-cola-logo-png.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://pngimg.com/uploads/samsung_logo/samsung_logo_PNG14.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+		</div>
+	</div>
+</div>
+
+<div class="infos">
+    
+	
+		<button class="back" (click)="goBack()"><i class="bi bi-arrow-left"></i></button>
+	
+		
+		  
+	  
+	 
+	  
+		<div class="container">
+			<p class="carmake">{{ carDetails.Vehicule_Make }} {{ carDetails.Vehicule_Model }} {{ carDetails.Vehicule_Year }}</p>  
+			<p class="price">{{ carDetails.Vehicule_SellPrice }} $</p>
+		  </div>
+		  <div class="tm">
+			<i class="bi bi-clock-fill"><span class="time">{{ carDetails.TimeDifference  }}</span></i>
+		  </div> 
+		  
+		  <div class="cont">
+			<div class="item">
+			  <span class="mdi mdi-car-shift-pattern"></span>
+			  <p>{{ carDetails.Vehicule_Transmission }}</p>
+			</div>
+		  
+			<div class="item">
+			  <span class="mdi mdi-engine-outline"></span>
+			  <p>{{ carDetails.Vehicule_Horsepower }} HP</p>
+			</div>
+		  
+			<div class="item">
+			  <span class="mdi mdi-gas-station"></span>
+			  <p>{{ carDetails.Vehicule_Fuel }}</p>
+			</div>
+		  </div>
+		  
+		  <div class="tbl">
+			<table class="carTable">
+			  <tr>
+				<th class="aaa">Make</th>
+				<td class="spaceColumn">{{ carDetails.Vehicule_Make }}</td>
+				<th class="spc">Doors number</th>
+				<td class="spaceColumns">{{ carDetails.Vehicule_DoorsNumber }}</td>
+			  </tr>
+		  
+			  <tr>
+				<th class="aaa">Model</th>
+				<td class="spaceColumn">{{ carDetails.Vehicule_Model }}</td>
+				<th class="spc">First hand</th>
+				<td class="spaceColumns">{{ carDetails.Vehicule_FirstHand }}</td>
+			  </tr>
+		  
+			  <tr>
+				<th class="aaa">Year</th>
+				<td class="spaceColumn">{{ carDetails.Vehicule_Year }}</td>
+				<th class="spc">Kilometrage</th>
+				<td class="spaceColumns">{{ carDetails.Vehicule_Kilometrage }} km</td>
+			  </tr>
+			</table>
+		  </div>
+		  
+		  <div class="description">
+			<p class="dsc">Description</p>
+			<p class="dscp">{{ carDetails.Vehicule_Description }}</p>
+		  </div>
+		  
+		  <div class="abus">
+        <p class="abs">Dream car is not responsible for the products offered in the advertisements. </p>
+
+	  </div>
+	<button class="button-17" role="button"><i class="bi bi-exclamation-circle"></i> <span class="rbuse">Report abuse</span></button>
+
+</div>
+
+<div class="contactseller">
+	<div class="sr"><h3 class="slr">Send a message to Achraf</h3></div>
+
+<form action="" class="contact-form">
+	<div class="input-wrapper">
+		<input type="text" name="name" placeholder=" ">
+		<label for="name">Name</label>
+	</div>
+	<div class="input-wrapper">
+		<input type="text" name="surname" placeholder=" ">
+		<label for="surname">Surname</label>
+	</div>
+	<div class="input-wrapper">
+		<input type="email" name="email" placeholder=" ">
+		<label for="email">Email</label>
+	</div>
+	<div class="input-wrapper">
+		<input type="text" name="phone" placeholder=" ">
+		<label for="phone">Phone number (optional)</label>
+	</div>
+	<div class="input-wrapper">
+		<select name="subject" id="subject">
+			<option value="" disabled selected>Select a subject</option>
+			<option value="question">Asking a question</option>
+			<option value="availability">Check availability</option>
+			<option value="financing">Discuss Financing</option>
+			<option value="test_drive">Schedule a test drive</option>
+		</select>
+	</div>
+	<div class="input-wrapper">
+		<textarea name="description" id="description" cols="30" rows="10" placeholder=" "></textarea>
+		<label for="description">Description</label>
+	</div>
+	<!-- HTML !-->
+<button class="button-66" role="button">Send</button>
+
+</form>
+<p class="yy">By clicking here, you authorize Dream car.com and its sellers/partners to contact you by text/calls which may include marketing and be by autodialer. 
+	Calls may be prerecorded. You also agree to our Privacy Notice. Consent is not required to purchase goods/services.</p>
+<h3 class="attention">Attention !</h3>
+<p class="att">You should never send money by bank transfer or through money transfer agencies when purchasing goods available on the site. <br> 
+	Dream Car.com does not guarantee transactions and does not play the role of intermediary.</p>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<app-footer></app-footer>

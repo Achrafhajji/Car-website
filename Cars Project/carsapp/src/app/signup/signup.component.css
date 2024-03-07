@@ -1,0 +1,188 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+.login,
+.image {
+  min-height: 91vh;
+}
+
+.bg-image {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/5fa6f97ed5d9331ae71d74e0/1607917060281-RS0OS58WLN4671ZQ4O9Z/image-asset.jpeg');
+  background-size: cover;
+  background-position: center center;
+}
+form{
+    margin-top: 50px;
+}
+.mb-3{
+    margin-top: 30px;
+}
+
+.mb-3 .lbl{
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+.form-control{
+    height: 50px;
+    font-size: 20px;
+}
+.custom-width {
+    width: 160%; /* Adjust the width as needed */
+}
+.toggle-password-btn {
+  position: absolute;
+  right: 15px;
+  top: 71%;
+  transform: translateY(-50%);
+  z-index: 1; 
+  border: none;
+  background-color: transparent;
+  outline: none; /* Remove the outline */
+  box-shadow: none; /* Remove any box shadow */
+}
+.bi-eye-fill{
+  color: #000080;
+  font-size: 20px;
+}
+.button-18 {
+    align-items: center;
+    background-color: #000080;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 60px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 120px;
+    padding-right: 120px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    margin-left: 80px;
+    margin-top: 50px;
+  }
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: black;
+    color: #ffffff;
+  }
+  
+  .button-18:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }            
+
+  .acc{
+    font-size: 20px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .acc a {
+    text-decoration: none;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative; /* Add position relative for absolute positioning of close icon */
+}
+
+.wrapper-warning {
+    margin: 20px;
+}
+
+.wrapper-warning .card {
+    width: 100%; /* Make the card width 100% */
+    max-width: 720px; /* Add a max-width to the card */
+    background-color: #fff;
+    padding: 20px; /* Increase padding for better spacing */
+    display: flex;
+    border-left: 5px solid #fd2020;
+    border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+    position: fixed; /* Add position relative for absolute positioning of exclamation icon */
+    animation: slideInFromLeft 0.5s forwards; /* Apply the animation */
+
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.wrapper-warning.hidden {
+  animation: slideOutToLeft 0.5s forwards;
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.wrapper-warning .card .subject {
+  margin-left: 50px;
+}
+
+.wrapper-warning .card .subject h3 {
+    margin-bottom: 5px; /* Add some space below the heading */
+}
+
+.wrapper-warning .card .subject p {
+    color: #909092;
+    font-size: 20px;
+}
+
+.wrapper-warning .card .fa-exclamation-circle {
+    position: absolute;
+    left: 20px; /* Position exclamation icon from the left */
+    top: 30%; /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: #fd2020;
+}
+
+.wrapper-warning .card .icon-times {
+    position: absolute;
+    right: 20px; /* Position close icon from the right */
+    top: 30%; /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: #c3c2c7;
+    cursor: pointer;
+}
